@@ -6,6 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CardUi {
+    }
     interface MyComponent {
         /**
           * The middle name
@@ -24,6 +26,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCardUiElement extends Components.CardUi, HTMLStencilElement {
+    }
+    var HTMLCardUiElement: {
+        prototype: HTMLCardUiElement;
+        new (): HTMLCardUiElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -37,11 +45,14 @@ declare global {
         new (): HTMLToggleButtonElement;
     };
     interface HTMLElementTagNameMap {
+        "card-ui": HTMLCardUiElement;
         "my-component": HTMLMyComponentElement;
         "toggle-button": HTMLToggleButtonElement;
     }
 }
 declare namespace LocalJSX {
+    interface CardUi {
+    }
     interface MyComponent {
         /**
           * The middle name
@@ -59,6 +70,7 @@ declare namespace LocalJSX {
     interface ToggleButton {
     }
     interface IntrinsicElements {
+        "card-ui": CardUi;
         "my-component": MyComponent;
         "toggle-button": ToggleButton;
     }
@@ -67,6 +79,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "card-ui": LocalJSX.CardUi & JSXBase.HTMLAttributes<HTMLCardUiElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "toggle-button": LocalJSX.ToggleButton & JSXBase.HTMLAttributes<HTMLToggleButtonElement>;
         }

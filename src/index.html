@@ -12,5 +12,14 @@
 <body>
   <my-component header="Task" description="'Don't call me a framework' JS"></my-component>
   <toggle-button></toggle-button>
+  <card-ui style="width: 300px; display: inline-block;">
+    <div slot="header">
+      Card header
+    </div>
+    <div> Card content goes here.</div>
+    <div slot="footer">
+      <button>In progress</button>
+    </div>
+  </card-ui>
 </body>
 </html>
