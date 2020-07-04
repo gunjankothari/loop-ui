@@ -8,17 +8,17 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyComponent {
         /**
+          * The middle name
+         */
+        "description": string;
+        /**
           * The first name
          */
-        "first": string;
+        "header": string;
         /**
           * The last name
          */
         "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
     }
     interface ToggleButton {
     }
@@ -44,17 +44,17 @@ declare global {
 declare namespace LocalJSX {
     interface MyComponent {
         /**
+          * The middle name
+         */
+        "description"?: string;
+        /**
           * The first name
          */
-        "first"?: string;
+        "header"?: string;
         /**
           * The last name
          */
         "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
     }
     interface ToggleButton {
     }

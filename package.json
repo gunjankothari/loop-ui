@@ -1,5 +1,5 @@
 {
-  "name": "card-component",
+  "name": "card-stencil-component",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
@@ -10,6 +10,10 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/card-component/card-component.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gunjankothari/stencil-hello-world.git"
+  },
   "files": [
     "dist/",
     "loader/"
