@@ -3,7 +3,8 @@ import { Component, ComponentInterface, h, Host } from '@stencil/core';
 @Component({
   tag: 'card-ui',
   styleUrl: 'card-ui.css',
-  shadow: true
+  shadow: false,
+  scoped: true
 })
 export class CardUi implements ComponentInterface {
 
