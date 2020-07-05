@@ -11,15 +11,17 @@ export class CardUi implements ComponentInterface {
   render() {
     return (
         <Host>
-          <div class="inner">
-            <div class="header">
-              <slot name="header"></slot>
-            </div>
-            <div class="content">
-              <slot />
-            </div>
-            <div class="footer">
-              <slot name="footer"></slot>
+          <div class="outer">
+            <div class="inner">
+              <div class="header">
+                <slot name="header"></slot>
+              </div>
+              <div class="content">
+                <slot />
+              </div>
+              <div class="footer">
+                <slot name="footer"></slot>
+              </div>
             </div>
           </div>
         </Host>

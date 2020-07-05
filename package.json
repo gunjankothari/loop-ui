@@ -3,7 +3,7 @@
   "version": "0.0.8",
   "description": "Stencil Component Starter",
   "main": "dist/index.js",
-  "module": "dist/index.mjs",
+  "module": "dist/custom-elements-bundle/index.mjs",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
   "types": "dist/types/index.d.ts",
@@ -26,7 +26,9 @@
     "generate": "stencil generate"
   },
   "devDependencies": {
-    "@stencil/core": "^1.12.2"
+    "@stencil/angular-output-target": "0.0.3",
+    "@stencil/core": "^1.12.2",
+    "rollup-plugin-node-polyfills": "^0.2.1"
   },
   "license": "MIT"
 }

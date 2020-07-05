@@ -1,9 +1,13 @@
 import { Config } from '@stencil/core';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
 
 export const config: Config = {
   namespace: 'card-component',
   taskQueue: 'async',
   outputTargets: [
+    {
+      type: 'dist-custom-elements-bundle',
+    },
     {
       type: 'dist',
       esmLoaderPath: '../loader'
@@ -14,6 +18,11 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null // disable service workers
-    }
-  ]
+    },
+  ],
+  rollupPlugins: {
+    after: [
+      nodePolyfills(),
+    ]
+  }
 };

@@ -7,12 +7,21 @@
 
   <script type="module" src="/build/card-component.esm.js"></script>
   <script nomodule src="/build/card-component.js"></script>
-
+  <style>
+    body {
+      background-color: #efefef;
+    }
+    card-ui .inner{
+      width: 350px;
+      display: inline-block;
+      background-color: white;
+    }
+  </style>
 </head>
 <body>
   <my-component header="Task" description="'Don't call me a framework' JS"></my-component>
   <toggle-button></toggle-button>
-  <card-ui style="width: 300px; display: inline-block; background-color: red;">
+  <card-ui>
     <div slot="header">
       <span>Card header</span>
     </div>
