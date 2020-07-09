@@ -33,7 +33,7 @@ export class SelectUI implements ComponentInterface {
     return this.options.filter( option => option.selected).map( option => option.value);
   }
 
-  toggleOptions(evt: Event) {
+  toggleOptions() {
     this.showOptions = !this.showOptions;
   }
 
@@ -45,7 +45,7 @@ export class SelectUI implements ComponentInterface {
     return (
       <Host>
         <div class="wrapper">
-          <div class="select-area" onClick={(evt) => this.toggleOptions(evt)}>
+          <div class="select-area" onClick={() => this.toggleOptions()}>
             <div class="placeholder">
               { this.generateLabel() || this.placeholder }
             </div>
