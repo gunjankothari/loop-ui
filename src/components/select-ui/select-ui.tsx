@@ -23,9 +23,9 @@ export class SelectUI implements ComponentInterface {
   selectedHandler(evt) {
     if(!this.multiselect){
       this.options.forEach( option => option.selected = false );
+      this.showOptions = false;
     }
     evt.target.selected = !evt.target.selected;
-    this.toggleOptions();
   }
 
   @Method()
@@ -33,7 +33,7 @@ export class SelectUI implements ComponentInterface {
     return this.options.filter( option => option.selected).map( option => option.value);
   }
 
-  toggleOptions() {
+  toggleOptions(evt: Event) {
     this.showOptions = !this.showOptions;
   }
 
@@ -45,7 +45,7 @@ export class SelectUI implements ComponentInterface {
     return (
       <Host>
         <div class="wrapper">
-          <div class="select-area" onClick={() => this.toggleOptions()}>
+          <div class="select-area" onClick={(evt) => this.toggleOptions(evt)}>
             <div class="placeholder">
               { this.generateLabel() || this.placeholder }
             </div>

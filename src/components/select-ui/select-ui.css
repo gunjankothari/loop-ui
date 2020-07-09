@@ -4,10 +4,10 @@
   position: relative;
 }
 :host .select-area {
-  background-color: #cfcece;
-  border: 1px solid #777;
+  background-color: #fff;
   border-radius: 3px;
   padding: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 :host .option-area {
   display: none;
@@ -17,6 +17,10 @@
   right: 0;
   overflow: scroll;
   max-height: 300px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  border-radius: 0 0 3px 3px;
+  overflow: auto;
+  top: 40px;
 }
 :host .option-area.show {
   display: flex;
