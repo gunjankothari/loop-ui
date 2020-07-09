@@ -22,6 +22,18 @@ export namespace Components {
          */
         "last": string;
     }
+    interface OptionUi {
+        "deselect": () => Promise<void>;
+        "disabled": boolean;
+        "selected": boolean;
+        "setSelected": () => Promise<void>;
+        "value": any;
+    }
+    interface SelectUi {
+        "getValue": () => Promise<any[]>;
+        "multiselect": boolean;
+        "placeholder": string;
+    }
     interface ToggleButton {
     }
 }
@@ -38,6 +50,18 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLOptionUiElement extends Components.OptionUi, HTMLStencilElement {
+    }
+    var HTMLOptionUiElement: {
+        prototype: HTMLOptionUiElement;
+        new (): HTMLOptionUiElement;
+    };
+    interface HTMLSelectUiElement extends Components.SelectUi, HTMLStencilElement {
+    }
+    var HTMLSelectUiElement: {
+        prototype: HTMLSelectUiElement;
+        new (): HTMLSelectUiElement;
+    };
     interface HTMLToggleButtonElement extends Components.ToggleButton, HTMLStencilElement {
     }
     var HTMLToggleButtonElement: {
@@ -47,6 +71,8 @@ declare global {
     interface HTMLElementTagNameMap {
         "card-ui": HTMLCardUiElement;
         "my-component": HTMLMyComponentElement;
+        "option-ui": HTMLOptionUiElement;
+        "select-ui": HTMLSelectUiElement;
         "toggle-button": HTMLToggleButtonElement;
     }
 }
@@ -67,11 +93,23 @@ declare namespace LocalJSX {
          */
         "last"?: string;
     }
+    interface OptionUi {
+        "disabled"?: boolean;
+        "onOptionSelected"?: (event: CustomEvent<any>) => void;
+        "selected"?: boolean;
+        "value"?: any;
+    }
+    interface SelectUi {
+        "multiselect"?: boolean;
+        "placeholder"?: string;
+    }
     interface ToggleButton {
     }
     interface IntrinsicElements {
         "card-ui": CardUi;
         "my-component": MyComponent;
+        "option-ui": OptionUi;
+        "select-ui": SelectUi;
         "toggle-button": ToggleButton;
     }
 }
@@ -81,6 +119,8 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "card-ui": LocalJSX.CardUi & JSXBase.HTMLAttributes<HTMLCardUiElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "option-ui": LocalJSX.OptionUi & JSXBase.HTMLAttributes<HTMLOptionUiElement>;
+            "select-ui": LocalJSX.SelectUi & JSXBase.HTMLAttributes<HTMLSelectUiElement>;
             "toggle-button": LocalJSX.ToggleButton & JSXBase.HTMLAttributes<HTMLToggleButtonElement>;
         }
     }

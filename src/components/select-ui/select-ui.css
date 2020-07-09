@@ -1,0 +1,19 @@
+:host {
+  display: block;
+  cursor: pointer;
+}
+.select-area {
+  background-color: #cfcece;
+  border: 1px solid #777;
+  border-radius: 3px;
+  padding: 10px;
+  width: 100%;
+}
+.option-area {
+  width: 100%;
+  display: none;
+  flex-direction: column;
+}
+.option-area.show {
+  display: flex;
+}
