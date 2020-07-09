@@ -23,10 +23,8 @@ export namespace Components {
         "last": string;
     }
     interface OptionUi {
-        "deselect": () => Promise<void>;
         "disabled": boolean;
         "selected": boolean;
-        "setSelected": () => Promise<void>;
         "value": any;
     }
     interface SelectUi {

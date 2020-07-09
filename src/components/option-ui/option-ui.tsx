@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h, Prop, Event, EventEmitter, Method } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'option-ui',
@@ -22,16 +22,6 @@ export class OptionUI implements ComponentInterface {
 
   optionSelectedHandler(evt) {
     this.optionSelected.emit(evt);
-  }
-
-  @Method()
-  async setSelected() {
-    this.selected = true;
-  }
-
-  @Method()
-  deselect() {
-    this.selected = false;
   }
 
   render() {

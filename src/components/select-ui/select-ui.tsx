@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h, State, Element, Prop, EventEmitter, Listen, Method } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, State, Element, Prop, Listen, Method } from '@stencil/core';
 
 @Component({
   tag: 'select-ui',
