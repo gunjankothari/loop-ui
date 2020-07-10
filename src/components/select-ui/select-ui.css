@@ -21,6 +21,7 @@
   border-radius: 0 0 3px 3px;
   overflow: auto;
   top: 40px;
+  z-index: 3;
 }
 :host .option-area.show {
   display: flex;

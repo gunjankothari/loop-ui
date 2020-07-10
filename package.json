@@ -12,7 +12,7 @@
   "unpkg": "dist/card-component/card-component.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gunjankothari/stencil-hello-world.git"
+    "url": "https://github.com/gunjankothari/loop-ui.git"
   },
   "files": [
     "dist/",
