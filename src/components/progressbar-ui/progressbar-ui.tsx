@@ -1,4 +1,4 @@
-import { Component, ComponentInterface, Host, h, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
 
 export interface IProgressbar {
   name?: string;
