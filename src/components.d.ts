@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IProgressbar, } from "./components/progressbar-ui/progressbar-ui";
 export namespace Components {
     interface CardUi {
     }
@@ -26,6 +27,11 @@ export namespace Components {
         "disabled": boolean;
         "selected": boolean;
         "value": any;
+    }
+    interface ProgressbarUi {
+        "stack": boolean;
+        "value": string | number | IProgressbar;
+        "values": (string | number | IProgressbar)[];
     }
     interface SelectUi {
         "getValue": () => Promise<any[]>;
@@ -54,6 +60,12 @@ declare global {
         prototype: HTMLOptionUiElement;
         new (): HTMLOptionUiElement;
     };
+    interface HTMLProgressbarUiElement extends Components.ProgressbarUi, HTMLStencilElement {
+    }
+    var HTMLProgressbarUiElement: {
+        prototype: HTMLProgressbarUiElement;
+        new (): HTMLProgressbarUiElement;
+    };
     interface HTMLSelectUiElement extends Components.SelectUi, HTMLStencilElement {
     }
     var HTMLSelectUiElement: {
@@ -70,6 +82,7 @@ declare global {
         "card-ui": HTMLCardUiElement;
         "my-component": HTMLMyComponentElement;
         "option-ui": HTMLOptionUiElement;
+        "progressbar-ui": HTMLProgressbarUiElement;
         "select-ui": HTMLSelectUiElement;
         "toggle-button": HTMLToggleButtonElement;
     }
@@ -97,6 +110,11 @@ declare namespace LocalJSX {
         "selected"?: boolean;
         "value"?: any;
     }
+    interface ProgressbarUi {
+        "stack"?: boolean;
+        "value"?: string | number | IProgressbar;
+        "values"?: (string | number | IProgressbar)[];
+    }
     interface SelectUi {
         "multiselect"?: boolean;
         "placeholder"?: string;
@@ -107,6 +125,7 @@ declare namespace LocalJSX {
         "card-ui": CardUi;
         "my-component": MyComponent;
         "option-ui": OptionUi;
+        "progressbar-ui": ProgressbarUi;
         "select-ui": SelectUi;
         "toggle-button": ToggleButton;
     }
@@ -118,6 +137,7 @@ declare module "@stencil/core" {
             "card-ui": LocalJSX.CardUi & JSXBase.HTMLAttributes<HTMLCardUiElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "option-ui": LocalJSX.OptionUi & JSXBase.HTMLAttributes<HTMLOptionUiElement>;
+            "progressbar-ui": LocalJSX.ProgressbarUi & JSXBase.HTMLAttributes<HTMLProgressbarUiElement>;
             "select-ui": LocalJSX.SelectUi & JSXBase.HTMLAttributes<HTMLSelectUiElement>;
             "toggle-button": LocalJSX.ToggleButton & JSXBase.HTMLAttributes<HTMLToggleButtonElement>;
         }

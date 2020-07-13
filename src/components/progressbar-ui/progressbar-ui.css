@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.outer {
+  height: 10px;
+  width: 300px;
+  background-color: #dedede;
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  position: relative;
+}
+.inner {
+  height: 100%;
+  width: 100%;
+}
+.progress {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.stack .progress {
+  position: relative;
+  float: left;
+}
+.progress span {
+  float: right;
+}
+.red {
+  background-color: #ff6464;
+}
+.blue {
+  background-color: #348efd;
+}
