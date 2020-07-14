@@ -1,12 +1,10 @@
 import { Component, ComponentInterface, Host, h, Prop, Watch } from '@stencil/core';
 
-export interface IProgressbar {
+export type Typebar = {
   name?: string;
   value: number;
   color: string;
-}
-
-type barType = string | number | IProgressbar;
+} | number | string;
 
 @Component({
   tag: 'progressbar-ui',
@@ -16,9 +14,9 @@ type barType = string | number | IProgressbar;
 })
 export class ProgressbarUi implements ComponentInterface {
 
-  parsedValue: barType[];
+  parsedValue: Typebar[];
 
-  @Prop() value: barType | barType[];
+  @Prop() value: Typebar | Typebar[];
   @Prop() stack: boolean = false;
 
   @Watch('value')
@@ -43,7 +41,7 @@ export class ProgressbarUi implements ComponentInterface {
       <Host>
         <div class="outer">
           <div class={{'inner': true, 'stack': this.stack }}>
-            { [this.parsedValue].map( bar => {
+            { this.parsedValue.map( (bar: Typebar) => {
               if(typeof bar === 'number' || typeof bar === 'string') {
                 return <div class="progress" style={{ width: bar + '%', backgroundColor: 'gray' }}></div>
               } else {

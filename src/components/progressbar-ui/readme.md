@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                                   | Default     |
-| -------- | --------- | ----------- | -------------------------------------- | ----------- |
-| `stack`  | `stack`   |             | `boolean`                              | `false`     |
-| `value`  | `value`   |             | `IProgressbar \| number \| string`     | `undefined` |
-| `values` | --        |             | `(string \| number \| IProgressbar)[]` | `undefined` |
+| Property | Attribute | Description | Type                                                                                | Default     |
+| -------- | --------- | ----------- | ----------------------------------------------------------------------------------- | ----------- |
+| `stack`  | `stack`   |             | `boolean`                                                                           | `false`     |
+| `value`  | `value`   |             | `Typebar[] \| number \| string \| { name?: string; value: number; color: string; }` | `undefined` |
 
 
 ----------------------------------------------

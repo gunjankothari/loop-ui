@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Typebar, } from "./components/progressbar-ui/progressbar-ui";
 export namespace Components {
     interface CardUi {
     }
@@ -29,7 +30,7 @@ export namespace Components {
     }
     interface ProgressbarUi {
         "stack": boolean;
-        "value": barType | barType[];
+        "value": Typebar | Typebar[];
     }
     interface SelectUi {
         "getValue": () => Promise<any[]>;
@@ -110,7 +111,7 @@ declare namespace LocalJSX {
     }
     interface ProgressbarUi {
         "stack"?: boolean;
-        "value"?: barType | barType[];
+        "value"?: Typebar | Typebar[];
     }
     interface SelectUi {
         "multiselect"?: boolean;
