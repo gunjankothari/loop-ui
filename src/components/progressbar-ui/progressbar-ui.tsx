@@ -1,10 +1,12 @@
-import { Component, ComponentInterface, Host, h, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Host, h, Prop, Watch } from '@stencil/core';
 
 export interface IProgressbar {
   name?: string;
   value: number;
   color: string;
 }
+
+type barType = string | number | IProgressbar;
 
 @Component({
   tag: 'progressbar-ui',
@@ -14,22 +16,38 @@ export interface IProgressbar {
 })
 export class ProgressbarUi implements ComponentInterface {
 
-  @Prop() value: string | number | IProgressbar;
-  @Prop() values: (string | number | IProgressbar)[];
+  parsedValue: barType[];
+
+  @Prop() value: barType | barType[];
   @Prop() stack: boolean = false;
 
+  @Watch('value')
+  valueDidChangeHandler(newValue: any) {
+    let parsed = newValue;
+    if(typeof newValue === 'string') {
+      parsed = JSON.parse(newValue);
+    }
+    if(Array.isArray(parsed)){
+      this.parsedValue = parsed;
+    } else {
+      this.parsedValue = [parsed];
+    }
+  }
+
+  componentWillLoad() {
+    this.valueDidChangeHandler(this.value);
+  }
+
   render() {
-    console.log(this.value)
-    console.log(this.values)
     return (
       <Host>
         <div class="outer">
           <div class={{'inner': true, 'stack': this.stack }}>
-            { (this.values || [this.value]).map( value => {
-              if(typeof value === 'number' || typeof value === 'string') {
-                return <div class="progress" style={{ width: value + '%', backgroundColor: 'gray' }}></div>
+            { [this.parsedValue].map( bar => {
+              if(typeof bar === 'number' || typeof bar === 'string') {
+                return <div class="progress" style={{ width: bar + '%', backgroundColor: 'gray' }}></div>
               } else {
-                return <div class="progress" style={{ width: value.value + '%', backgroundColor: value.color }}></div>
+                return <div class="progress" style={{ width: bar.value + '%', backgroundColor: bar.color }}></div>
               }
             }) }
           </div>
